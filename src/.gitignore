@@ -1,0 +1,4 @@
+build/
+doomgeneric
+*.wad
+.savegame
