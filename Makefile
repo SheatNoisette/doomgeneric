@@ -23,8 +23,8 @@ SRC_DOOM = i_main.o dummy.o am_map.o doomdef.o doomstat.o dstrings.o d_event.o d
 		   doomgeneric_raylib.o
 
 CC?=clang  # gcc or g++
-CFLAGS+=-ggdb3 -Os $(INCLUDES) 
-LDFLAGS+=
+CFLAGS+=-ggdb3 -Os $(INCLUDES) -Isrc/raylib/src
+LDFLAGS+=-Lsrc/raylib/ -lraylib
 CFLAGS+=-ggdb3 -Wall -DNORMALUNIX -DLINUX -DSNDSERV # -DUSEASM
 LIBS+=-lm -lc
 

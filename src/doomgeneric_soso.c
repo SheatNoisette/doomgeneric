@@ -55,7 +55,7 @@ static unsigned char convertToDoomKey(unsigned char scancode)
         break;
     case 0xCB:
     case 0x4B:
-        key = KEY_LEFTARROW;
+        key = KEY_LEFTARROW_D;
         break;
     case 0xCD:
     case 0x4D:

@@ -444,7 +444,7 @@ void HU_Ticker(void)
 		else
 		{
 		    rc = HUlib_keyInIText(&w_inputbuffer[i], c);
-		    if (rc && c == KEY_ENTER)
+		    if (rc && c == KEY_ENTER_D)
 		    {
 			if (w_inputbuffer[i].l.len
 			    && (chat_dest[i] == consoleplayer+1
@@ -526,11 +526,11 @@ boolean HU_Responder(event_t *ev)
     for (i=0 ; i<MAXPLAYERS ; i++)
 	numplayers += playeringame[i];
 
-    if (ev->data1 == KEY_RSHIFT)
+    if (ev->data1 == KEY_RSHIFT_D)
     {
 	return false;
     }
-    else if (ev->data1 == KEY_RALT || ev->data1 == KEY_LALT)
+    else if (ev->data1 == KEY_RALT_D || ev->data1 == KEY_LALT)
     {
 	altdown = ev->type == ev_keydown;
 	return false;
@@ -596,12 +596,12 @@ boolean HU_Responder(event_t *ev)
 	    macromessage = chat_macros[c];
 	    
 	    // kill last message with a '\n'
-	    HU_queueChatChar(KEY_ENTER); // DEBUG!!!
+	    HU_queueChatChar(KEY_ENTER_D); // DEBUG!!!
 	    
 	    // send the macro message
 	    while (*macromessage)
 		HU_queueChatChar(*macromessage++);
-	    HU_queueChatChar(KEY_ENTER);
+	    HU_queueChatChar(KEY_ENTER_D);
 	    
             // leave chat mode and notify that it was sent
             chat_on = false;
@@ -622,7 +622,7 @@ boolean HU_Responder(event_t *ev)
 		// M_snprintf(buf, sizeof(buf), "KEY: %d => %d", ev->data1, c);
 		//        plr->message = buf;
 	    }
-	    if (c == KEY_ENTER)
+	    if (c == KEY_ENTER_D)
 	    {
 		chat_on = false;
                 if (w_chat.l.len)
@@ -631,7 +631,7 @@ boolean HU_Responder(event_t *ev)
                     plr->message = lastmessage;
                 }
 	    }
-	    else if (c == KEY_ESCAPE)
+	    else if (c == KEY_ESCAPE_D)
 		chat_on = false;
 	}
     }

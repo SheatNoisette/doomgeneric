@@ -1134,7 +1134,7 @@ static default_t extra_defaults_list[] =
     // Key to pause or unpause the game.
     //
 
-    CONFIG_VARIABLE_KEY(key_pause),
+    CONFIG_VARIABLE_KEY(KEY_PAUSE_D),
 
     //!
     // Key that activates the menu when pressed.
@@ -1578,7 +1578,7 @@ static default_t *SearchCollection(default_collection_t *collection, char *name)
 // Mapping from DOS keyboard scan code to internal key code (as defined
 // in doomkey.h). I think I (fraggle) reused this from somewhere else
 // but I can't find where. Anyway, notes:
-//  * KEY_PAUSE is wrong - it's in the KEY_NUMLOCK spot. This shouldn't
+//  * KEY_PAUSE_D is wrong - it's in the KEY_NUMLOCK spot. This shouldn't
 //    matter in terms of Vanilla compatibility because neither of
 //    those were valid for key bindings.
 //  * There is no proper scan code for PrintScreen (on DOS machines it
@@ -1588,17 +1588,17 @@ static default_t *SearchCollection(default_collection_t *collection, char *name)
 static const int scantokey[128] =
 {
     0  ,    27,     '1',    '2',    '3',    '4',    '5',    '6',
-    '7',    '8',    '9',    '0',    '-',    '=',    KEY_BACKSPACE, 9,
+    '7',    '8',    '9',    '0',    '-',    '=',    KEY_BACKSPACE_D, 9,
     'q',    'w',    'e',    'r',    't',    'y',    'u',    'i',
-    'o',    'p',    '[',    ']',    13,		KEY_RCTRL, 'a',    's',
+    'o',    'p',    '[',    ']',    13,		KEY_RCTRL_D, 'a',    's',
     'd',    'f',    'g',    'h',    'j',    'k',    'l',    ';',
-    '\'',   '`',    KEY_RSHIFT,'\\',   'z',    'x',    'c',    'v',
-    'b',    'n',    'm',    ',',    '.',    '/',    KEY_RSHIFT,KEYP_MULTIPLY,
-    KEY_RALT,  ' ',  KEY_CAPSLOCK,KEY_F1,  KEY_F2,   KEY_F3,   KEY_F4,   KEY_F5,
-    KEY_F6,   KEY_F7,   KEY_F8,   KEY_F9,   KEY_F10,  /*KEY_NUMLOCK?*/KEY_PAUSE,KEY_SCRLCK,KEY_HOME,
-    KEY_UPARROW,KEY_PGUP,KEY_MINUS,KEY_LEFTARROW,KEYP_5,KEY_RIGHTARROW,KEYP_PLUS,KEY_END,
-    KEY_DOWNARROW,KEY_PGDN,KEY_INS,KEY_DEL,0,   0,      0,      KEY_F11,
-    KEY_F12,  0,      0,      0,      0,      0,      0,      0,
+    '\'',   '`',    KEY_RSHIFT_D,'\\',   'z',    'x',    'c',    'v',
+    'b',    'n',    'm',    ',',    '.',    '/',    KEY_RSHIFT_D,KEYP_MULTIPLY,
+    KEY_RALT_D,  ' ',  KEY_CAPSLOCK,KEY_F1_D,  KEY_F2_D,   KEY_F3_D,   KEY_F4_D,   KEY_F5_D,
+    KEY_F6_D,   KEY_F7_D,   KEY_F8_D,   KEY_F9_D,   KEY_F10_D,  /*KEY_NUMLOCK?*/KEY_PAUSE_D,KEY_SCRLCK_D,KEY_HOME_D,
+    KEY_UPARROW_D,KEY_PGUP_D,KEY_MINUS_D,KEY_LEFTARROW_D,KEY_F5_D,KEY_RIGHTARROW_D,KEYP_PLUS,KEY_END_D,
+    KEY_DOWNARROW_D,KEY_PGDN_D,KEY_INS_D,KEY_DEL_D,0,   0,      0,      KEY_F11_D,
+    KEY_F12_D,  0,      0,      0,      0,      0,      0,      0,
     0,      0,      0,      0,      0,      0,      0,      0,
     0,      0,      0,      0,      0,      0,      0,      0,
     0,      0,      0,      0,      0,      0,      0,      0,
@@ -1649,7 +1649,7 @@ static void SaveDefaultCollection(default_collection_t *collection)
                 
                 v = * (int *) defaults[i].location;
 
-                if (v == KEY_RSHIFT)
+                if (v == KEY_RSHIFT_D)
                 {
                     // Special case: for shift, force scan code for
                     // right shift, as this is what Vanilla uses.

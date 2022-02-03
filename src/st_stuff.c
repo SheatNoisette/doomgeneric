@@ -77,7 +77,7 @@
 #define ST_FACEPROBABILITY		96
 
 // For Responder
-#define ST_TOGGLECHAT		KEY_ENTER
+#define ST_TOGGLECHAT		KEY_ENTER_D
 
 // Location of status bar
 #define ST_X				0

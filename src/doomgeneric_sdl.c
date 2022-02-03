@@ -30,7 +30,7 @@ static unsigned char convertToDoomKey(unsigned int key){
       key = KEY_ESCAPE;
       break;
     case SDLK_LEFT:
-      key = KEY_LEFTARROW;
+      key = KEY_LEFTARROW_D;
       break;
     case SDLK_RIGHT:
       key = KEY_RIGHTARROW;

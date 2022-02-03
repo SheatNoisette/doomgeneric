@@ -316,10 +316,10 @@ HUlib_keyInIText
     if (ch >= ' ' && ch <= '_') 
   	HUlib_addCharToTextLine(&it->l, (char) ch);
     else 
-	if (ch == KEY_BACKSPACE) 
+	if (ch == KEY_BACKSPACE_D) 
 	    HUlib_delCharFromIText(it);
 	else 
-	    if (ch != KEY_ENTER) 
+	    if (ch != KEY_ENTER_D) 
 		return false; // did not eat key
 
     return true; // ate the key
