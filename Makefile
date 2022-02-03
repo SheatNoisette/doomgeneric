@@ -30,7 +30,7 @@ LIBS+=-lm -lc
 
 # subdirectory for objects
 OBJDIR=src
-OUTPUT=doomgeneric
+OUTPUT=raydoom
 
 
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_DOOM))
